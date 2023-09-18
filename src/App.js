@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { API } from "aws-amplify";
-import {
-  Button,
-  Flex,
-  Heading,
-  Text,
-  TextField,
-  View,
-  withAuthenticator,
-} from "@aws-amplify/ui-react";
-import { listNotes } from "./graphql/queries";
-import {
-  createNote as createNoteMutation,
-  deleteNote as deleteNoteMutation,
-} from "./graphql/mutations";
 import { API, Storage } from 'aws-amplify';
 import {
   Button,
@@ -27,6 +12,12 @@ import {
   View,
   withAuthenticator,
 } from '@aws-amplify/ui-react';
+import { listNotes } from "./graphql/queries";
+import {
+  createNote as createNoteMutation,
+  deleteNote as deleteNoteMutation,
+} from "./graphql/mutations";
+
 
 
 const App = ({ signOut }) => {
@@ -56,11 +47,11 @@ async function createNote(event) {
   const form = new FormData(event.target);
   const image = form.get("image");
   const data = {
-    name: form.get("name"),
+    //name: form.get("name"),
     description: form.get("description"),
     image: image.name,
   };
-  if (!!data.image) await Storage.put(data.name, image);
+  //if (!!data.image) await Storage.put(data.name, image);
   await API.graphql({
     query: createNoteMutation,
     variables: { input: data },
@@ -131,7 +122,7 @@ async function deleteNote({ id, name }) {
   		type="file"
   		style={{ alignSelf: "end" }}
 	  />
-	  {notes.map((note) => (
+{notes.map((note) => (
   <Flex
     key={note.id || note.name}
     direction="row"
@@ -153,8 +144,7 @@ async function deleteNote({ id, name }) {
       Delete note
     </Button>
   </Flex>
-))}
-      <Button onClick={signOut}>Sign Out</Button>
+))}      <Button onClick={signOut}>Sign Out</Button>
     </View>
   );
 };
