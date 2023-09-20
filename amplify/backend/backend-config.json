@@ -43,6 +43,24 @@
       "service": "Cognito"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_ecommerce_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommerce"
+        }
+      ]
+    },
+    "AMPLIFY_function_ecommerce_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommerce"
+        }
+      ]
+    }
+  },
   "storage": {
     "imagestorage": {
       "dependsOn": [],

@@ -1,6 +1,47 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createCustomer = /* GraphQL */ `
+  mutation CreateCustomer($input: createCustomerInput!) {
+    createCustomer(input: $input) {
+      PK
+      email
+      __typename
+    }
+  }
+`;
+export const createProduct = /* GraphQL */ `
+  mutation CreateProduct($input: createProductInput!) {
+    createProduct(input: $input) {
+      PK
+      qty
+      price
+      name
+      detail
+      __typename
+    }
+  }
+`;
+export const createOrder = /* GraphQL */ `
+  mutation CreateOrder($input: createOrderInput!) {
+    createOrder(input: $input) {
+      PK
+      SK
+      type
+      amount
+      orderItems {
+        PK
+        SK
+        price
+        name
+        qty
+        type
+        __typename
+      }
+      __typename
+    }
+  }
+`;
 export const createNote = /* GraphQL */ `
   mutation CreateNote(
     $input: CreateNoteInput!

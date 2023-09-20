@@ -20,6 +20,12 @@
       },
       "storage": {
         "imagestorage": {}
+      },
+      "function": {
+        "ecommerce": {
+          "deploymentBucketName": "amplify-amplify4690c45f0cc74-staging-171918-deployment",
+          "s3Key": "amplify-builds/ecommerce-6d34474b5a324d53514b-build.zip"
+        }
       }
     }
   }
